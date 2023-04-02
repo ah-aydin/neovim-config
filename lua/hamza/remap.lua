@@ -25,3 +25,9 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")
+
+-- Window/buffer mappings
+vim.keymap.set("n", "<C-w><C-l>", ":rightbelow vnew<CR>")
+vim.keymap.set("n", "<C-w><C-h>", ":leftabove vnew<CR>")
+vim.keymap.set("n", "<C-w><C-k>", ":new<CR>")
+vim.keymap.set("n", "<C-w><C-j>", ":belowright new<CR>")

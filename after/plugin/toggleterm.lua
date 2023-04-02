@@ -8,11 +8,11 @@ end
 toggleterm.setup({
     size = function(term)
         if term.direction == "horizontal" then
-            return 20
+            return 15
         elseif term.direction == "vertical" then
             return 70
         end
-        return 20
+        return 15
     end,
     open_mapping = [[<C-\>]],
 })

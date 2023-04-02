@@ -15,10 +15,10 @@ return require('packer').startup(function(use)
 
 	-- Theme
 	use { "bluz71/vim-moonfly-colors", as = "moonfly" }
-	
+
 	-- Does some color fixes, idk
 	use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
-	
+
 	use('theprimeagen/harpoon')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
@@ -45,5 +45,9 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
+
+    use {"akinsho/toggleterm.nvim", config = function()
+        require("toggleterm").setup()
+    end}
 end)
 

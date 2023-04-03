@@ -54,5 +54,9 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    -- Quality of life
+    use('jiangmiao/auto-pairs') -- Auto-complete on pair thingies
+    use('terrortylor/nvim-comment') -- Commenting
 end)
 

@@ -15,6 +15,7 @@ toggleterm.setup({
         return 15
     end,
     open_mapping = [[<C-\>]],
+    direction="vertical"
 })
 
 vim.keymap.set("n", "tv", ":ToggleTerm direction=vertical<CR>")

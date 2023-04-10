@@ -56,7 +56,6 @@ return require('packer').startup(function(use)
     }
 
     -- Quality of life
-    use('jiangmiao/auto-pairs') -- Auto-complete on pair thingies
     use('terrortylor/nvim-comment') -- Commenting
 end)
 

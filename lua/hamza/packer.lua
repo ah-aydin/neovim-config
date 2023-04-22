@@ -55,6 +55,8 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    use ('rhysd/vim-fixjson')
+
     -- Quality of life
     use('terrortylor/nvim-comment') -- Commenting
 end)

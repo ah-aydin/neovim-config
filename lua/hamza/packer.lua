@@ -57,6 +57,14 @@ return require('packer').startup(function(use)
 
     use ('rhysd/vim-fixjson')
 
+    -- File Explorer
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+        }
+    }
+
     -- Quality of life
     use('terrortylor/nvim-comment') -- Commenting
 end)

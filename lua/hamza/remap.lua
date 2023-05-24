@@ -35,3 +35,7 @@ vim.keymap.set("n", "<C-w><C-l>", ":rightbelow vnew<CR>")
 vim.keymap.set("n", "<C-w><C-h>", ":leftabove vnew<CR>")
 vim.keymap.set("n", "<C-w><C-k>", ":new<CR>")
 vim.keymap.set("n", "<C-w><C-j>", ":belowright new<CR>")
+
+-- Useless mappings
+vim.keymap.set("n", "[[", "<NOP>")
+vim.keymap.set("n", "]]", "<NOP>")

@@ -19,4 +19,5 @@ tree.setup({
     }
 })
 
-vim.keymap.set("n", "q", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>[", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>]", ":NvimTreeFocus<CR>")

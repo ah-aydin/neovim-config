@@ -14,8 +14,8 @@ vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 
 -- For centering the screen when jumping to search results
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
 
 vim.keymap.set("x", "<leader>p", "\"_dp")
 
@@ -31,10 +31,16 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Window/buffer mappings
+-- New window/buffer
 vim.keymap.set("n", "<C-w><C-l>", ":rightbelow vnew<CR>")
 vim.keymap.set("n", "<C-w><C-h>", ":leftabove vnew<CR>")
 vim.keymap.set("n", "<C-w><C-k>", ":new<CR>")
 vim.keymap.set("n", "<C-w><C-j>", ":belowright new<CR>")
+-- Move between window/buffer
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Useless mappings
 vim.keymap.set("n", "[[", "<NOP>")

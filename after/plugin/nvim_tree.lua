@@ -2,7 +2,7 @@ local status_ok, tree = pcall(require, "nvim-tree")
 
 
 if not status_ok then
-    print("Failed to load lualine")
+    print("Failed to load nvim-tree")
     return
 end
 

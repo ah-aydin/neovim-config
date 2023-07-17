@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/hamza/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ReplaceWithRegister = {
+    loaded = true,
+    path = "/home/hamza/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
+    url = "https://github.com/vim-scripts/ReplaceWithRegister"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/hamza/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -154,11 +159,6 @@ _G.packer_plugins = {
     path = "/home/hamza/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/home/hamza/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
   ["nvim-web-devicons"] = {
     loaded = false,
     needs_bufread = false,
@@ -180,15 +180,10 @@ _G.packer_plugins = {
     path = "/home/hamza/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  undotree = {
+  ["vim-surround"] = {
     loaded = true,
-    path = "/home/hamza/.local/share/nvim/site/pack/packer/start/undotree",
-    url = "https://github.com/mbbill/undotree"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/hamza/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
+    path = "/home/hamza/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 

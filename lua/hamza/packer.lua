@@ -1,29 +1,27 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-	-- File finder
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+    -- Theme
+    use { "bluz71/vim-moonfly-colors", as = "moonfly" }
 
-	-- Theme
-	use { "bluz71/vim-moonfly-colors", as = "moonfly" }
+    -- Fuzzy finder
+    use {
+        "nvim-telescope/telescope.nvim",
+        tag="0.1.1",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
 
-	-- Does some color fixes, idk
-	use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
+    use("theprimeagen/harpoon")
 
-	use('theprimeagen/harpoon')
-	use('mbbill/undotree')
-	use('tpope/vim-fugitive')
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true }
+    }
 
-	use {
+    -- lsp
+    use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v1.x',
 		requires = {
@@ -40,28 +38,21 @@ return require('packer').startup(function(use)
 			{'saadparwaiz1/cmp_luasnip'}, -- Optional
 			{'hrsh7th/cmp-nvim-lua'},     -- Optional
 
+            -- Formatting and linting
+            {'jose-elias-alvarez/null-ls.nvim'},
+            {'jay-babu/mason-null-ls.nvim'},
+
 			-- Snippets
 			{'L3MON4D3/LuaSnip'},             -- Required
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
+    use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
+    -- git
+    use('tpope/vim-fugitive')
 
-    use ('rhysd/vim-fixjson')
-
-    -- File Explorer
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons',
-        }
-    }
-
-    -- Quality of life
-    use('terrortylor/nvim-comment') -- Commenting
+    use("tpope/vim-surround")
+    use("vim-scripts/ReplaceWithRegister")
+    use("terrortylor/nvim-comment")
 end)
-

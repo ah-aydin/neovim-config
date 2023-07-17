@@ -1,38 +1,40 @@
-local lsp = require("lsp-zero")
+local lsp_status, lsp = pcall(require, "lsp-zero")
+if not lsp_status then
+    print("Could not import lsp-zero")
+    return
+end
 
-lsp.preset('recommended')
+lsp.preset("recommended")
 
-lsp.ensure_installed({
-	'tsserver',
-	'eslint',
-	'rust_analyzer',
-	'clangd',
-})
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
+    print("Could not import cmp")
+    return
+end
 
-local cmp = require('cmp')
-local cmp_select = {behaviour = cmp.SelectBehavior.Select}
+local cmp_select = { behaviour = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
+    ["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
 })
 
 lsp.set_preferences({
-	sign_icons = { }
+    sign_icons = {}
 })
 
 lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
+    mapping = cmp_mappings
 })
 
 lsp.set_preferences({
     suggest_lsp_servers = true,
-    sign_icons ={
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
+    sign_icons = {
+        error = "E",
+        warn = "W",
+        hint = "H",
+        info = "I"
     }
 })
 

@@ -49,6 +49,12 @@ return require("packer").startup(function(use)
 	}
     use({"nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"}})
 
+    -- status line
+    use {
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig"
+    }
+
     -- git
     use("tpope/vim-fugitive")
     use("lewis6991/gitsigns.nvim")

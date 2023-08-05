@@ -4,6 +4,13 @@ if not lsp_status then
     return
 end
 
+local navic_status, navic = pcall(require, "nvim-navic")
+if not navic_status then
+    print("Could not import naivc")
+    return
+end
+
+
 lsp.preset("recommended")
 
 local cmp_status, cmp = pcall(require, "cmp")
@@ -51,6 +58,11 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    if client.server_capabilities.documentSymbolProvider then
+        navic.setup()
+        navic.attach(client, bufnr)
+    end
 end)
 
 lsp.setup()

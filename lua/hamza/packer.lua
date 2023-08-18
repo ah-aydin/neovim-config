@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
             -- Formatting and linting
             {"jose-elias-alvarez/null-ls.nvim"},
             {"jay-babu/mason-null-ls.nvim"},
+            {"alx741/vim-rustfmt"},
 
 			-- Snippets
 			{"L3MON4D3/LuaSnip"},             -- Required
@@ -48,12 +49,9 @@ return require("packer").startup(function(use)
 		}
 	}
     use({"nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"}})
+    use("nvim-treesitter/nvim-treesitter-context")
 
     -- status line
-    use {
-        "SmiteshP/nvim-navic",
-        requires = "neovim/nvim-lspconfig"
-    }
 
     -- git
     use("tpope/vim-fugitive")

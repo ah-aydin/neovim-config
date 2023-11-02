@@ -39,3 +39,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Useless mappings
 vim.keymap.set("n", "[[", "<NOP>")
 vim.keymap.set("n", "]]", "<NOP>")
+
+-- Git
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)

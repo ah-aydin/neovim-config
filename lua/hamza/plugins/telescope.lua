@@ -1,35 +1,53 @@
-local telescope_ok, telescope = pcall(require, "telescope")
-if not telescope_ok then
-    print("Could not import telescope")
-    return
+-- Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
+
+local status, telescope = pcall(require, "telescope")
+if not status then
+  print("Could not import telescope")
+  return
 end
 
-local builtin_ok, builtin = pcall(require, "telescope.builtin")
-if not builtin_ok then
-    print("Could not import telescope.builtin")
-    return
+local status2, builtin = pcall(require, "telescope.builtin")
+if not status2 then
+  print("Could not import telescope.builtin")
+  return
 end
 
-local actions_ok, actions = pcall(require, "telescope.actions")
-if not actions_ok then
-    print("Could not import telescope.actions")
-    return
+local status3, actions = pcall(require, "telescope.actions")
+if not status3 then
+  print("Could not import telescope.actions")
 end
 
-vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
-vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fc", builtin.grep_string, {})
-vim.keymap.set("n", "<leader>sb", builtin.buffers, {})
+local status4, themes = pcall(require, "telescope.themes")
+if not status4 then
+  print("Could not import telescope.themes")
+end
 
-telescope.setup({
-    defaults = {
-        mappings = {
-            i = {
-                ["<C-k>"] = actions.move_selection_previous,
-                ["<C-j>"] = actions.move_selection_next,
-                -- ["<C-q>"] = actions.move_selection_previous,
-            }
-        }
-    }
-})
+
+vim.keymap.set("n", "<leader>gf", builtin.git_files, {desc = "Search [G]it [F]iles"})
+vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Search [P]roject [F]iles' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+
+vim.keymap.set('n', '<leader>/', function()
+  builtin.current_buffer_fuzzy_find(themes.get_dropdown {
+    winblend = 20,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer' })
+
+telescope.setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = actions.move_selection_next,
+      },
+    },
+  },
+}

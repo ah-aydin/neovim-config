@@ -1,39 +1,42 @@
-local opt = vim.opt
-
 -- Line numbers
-opt.number = true
-opt.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Indentation
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
-opt.smartindent = true
+vim.opt.smartindent = true
 
-opt.wrap = false
+vim.opt.wrap = false
 
-opt.swapfile = false
-opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opt.undofile = true
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
-opt.hlsearch = false
-opt.incsearch = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- color
-opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.signcolumn = "yes"
 
-opt.scrolloff = 6
-opt.signcolumn = "yes"
-opt.isfname:append("@-@")
+vim.opt.scrolloff = 6
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
 
-opt.updatetime = 50
+vim.opt.updatetime = 50
 
-opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 
-vim.g.mapleader = " "
+vim.opt.clipboard = 'unnamedplus'
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Set completeopt to have a better completion experience
+vim.opt.completeopt = 'menuone,noselect'

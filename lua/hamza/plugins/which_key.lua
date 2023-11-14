@@ -1,7 +1,4 @@
-local status, which_key = pcall(require, "which-key")
-if not status then
-  print("Failed to import which-key")
-end
+local which_key = require("which-key")
 
 which_key.setup()
 

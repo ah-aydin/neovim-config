@@ -1,22 +1,11 @@
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
-local status, telescope = pcall(require, "telescope")
-if not status then
-  print("Could not import telescope")
-  return
-end
+local telescope = require("telescope")
 
-local status2, builtin = pcall(require, "telescope.builtin")
-if not status2 then
-  print("Could not import telescope.builtin")
-  return
-end
+local builtin = require("telescope.builtin")
 
-local status3, actions = pcall(require, "telescope.actions")
-if not status3 then
-  print("Could not import telescope.actions")
-end
+local actions = require("telescope.actions")
 
 local status4, themes = pcall(require, "telescope.themes")
 if not status4 then
@@ -24,7 +13,7 @@ if not status4 then
 end
 
 
-vim.keymap.set("n", "<leader>gf", builtin.git_files, {desc = "Search [G]it [F]iles"})
+vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Search [P]roject [F]iles' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })

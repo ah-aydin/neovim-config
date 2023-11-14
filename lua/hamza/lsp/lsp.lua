@@ -1,18 +1,6 @@
-local status, telescope_builtin = pcall(require, "telescope.builtin")
-if not status then
-  print("Failed to import telescope.builtin")
-  return
-end
-local status2, mason = pcall(require, "mason")
-if not status2 then
-  print("Failed to import mason")
-  return
-end
-local status3, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status3 then
-  print("Failed to import mason")
-  return
-end
+local telescope_builtin = require("telescope.builtin")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
@@ -49,8 +37,8 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "[W]orkspace [L]ist Folders")
 
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+  -- Create a command `:Fmt` local to the LSP buffer
+  vim.api.nvim_buf_create_user_command(bufnr, "Fmt", function(_)
     vim.lsp.buf.format()
   end, { desc = "Format current buffer with LSP" })
 end
@@ -62,10 +50,7 @@ mason_lspconfig.setup()
 
 local servers = {
   clangd = {},
-  pyright = {},
   rust_analyzer = {},
-  tsserver = {},
-  html = { filetypes = { "html", "twig", "hbs"} },
 
   lua_ls = {
     Lua = {

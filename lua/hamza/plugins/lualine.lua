@@ -1,8 +1,4 @@
-local status, lualine = pcall(require, "lualine")
-if not status then
-  print("Failed to import lualine")
-  return 1
-end
+local lualine = require("lualine")
 
 lualine.setup {
   options = {

@@ -1,14 +1,8 @@
-local status, cmp = pcall(require, "cmp")
-if not status then
-  print("Failed to import cmp")
-  return
-end
-local status2, luasnip = pcall(require, "luasnip")
-if not status2 then
-  print("Failed to import luasnip")
-  return
-end
+local cmp = require("cmp")
+local luasnip = require("luasnip")
+
 require('luasnip.loaders.from_vscode').lazy_load()
+
 luasnip.config.setup {}
 
 cmp.setup {

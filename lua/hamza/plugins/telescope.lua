@@ -13,6 +13,7 @@ if not status4 then
 end
 
 
+vim.keymap.set("n", "<leader>tkm", builtin.keymaps, { desc = "[T]elescope [K]ey [M]aps" })
 vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Search [P]roject [F]iles' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })

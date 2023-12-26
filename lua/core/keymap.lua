@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- To move visual mode block around
@@ -16,7 +17,7 @@ vim.keymap.set("n", "}", "}zz")
 -- For centering the screen when jumping to search results
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
---
+
 -- Store stuff in the system buffer instead of the editor buffer
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")

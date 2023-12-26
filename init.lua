@@ -1,17 +1,21 @@
-require("hamza.lazy")
+-- Builtin neovim features
+require('core.autocmd')
+require('core.keymap')
+require('core.options')
 
-require("hamza.core.autocmd")
-require("hamza.core.keymap")
-require("hamza.core.options")
-require("hamza.core.theme")
+-- Install lazy.nvim if it is not present in the system
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-require("hamza.lsp.lsp")
-require("hamza.lsp.nvim_cmp")
-
-require("hamza.plugins.gitsigns")
-require("hamza.plugins.harpoon")
-require("hamza.plugins.lualine")
-require("hamza.plugins.telescope")
-require("hamza.plugins.treesitter")
-require("hamza.plugins.treesitter_context")
-require("hamza.plugins.which_key")
+-- Initialize lazy.nvim
+require('lazy').setup('plugins')

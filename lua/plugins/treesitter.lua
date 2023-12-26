@@ -1,7 +1,9 @@
-local treesitter_configs = require("nvim-treesitter.configs")
-
-vim.defer_fn(function()
-    treesitter_configs.setup {
+return {
+  'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate',
+  config = function()
+    local configs = require('nvim-treesitter.configs')
+    configs.setup {
       ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
       auto_install = true,
       sync_install = false,
@@ -10,6 +12,5 @@ vim.defer_fn(function()
         additional_vim_regex_highlighting = false,
       }
     }
-  end,
-  0
-)
+  end
+}

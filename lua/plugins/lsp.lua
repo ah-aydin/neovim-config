@@ -11,7 +11,7 @@ local on_attach = function(_, bufnr)
 
   map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-  map('<leader>lr', vim.lsp.buf.references, '[L]ist [R]eferences')
+  map('<leader>lr', '<cmd>lua require(\'telescope.builtin\').lsp_references({})<CR>', '[L]ist [R]eferences')
   map('K', vim.lsp.buf.hover, 'Hover Documentation')
   map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 

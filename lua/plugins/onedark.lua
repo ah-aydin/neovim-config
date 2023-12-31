@@ -5,7 +5,7 @@ return {
   config = function()
     -- your optional config goes here, see below.
     require('onedark').setup({
-      style = 'deep',
+      style = 'darker',
       code_style = {
         keywords = 'bold',
       },

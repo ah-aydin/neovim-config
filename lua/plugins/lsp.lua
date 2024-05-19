@@ -46,6 +46,10 @@ local server_settings = {
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' }
   },
 
+  cmake_language_server = {
+    filetype = { 'cmake' }
+  },
+
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -67,7 +71,7 @@ return {
     end
   },
   { 'neovim/nvim-lspconfig' },
-  { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+  { 'j-hui/fidget.nvim',    tag = 'legacy', opts = {} },
   {
     'folke/neodev.nvim',
     config = function()

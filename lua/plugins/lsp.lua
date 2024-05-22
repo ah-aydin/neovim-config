@@ -41,6 +41,10 @@ local on_attach = function(_, bufnr)
 end
 
 local server_settings = {
+  asm_lsp = {
+    filetypes = { 'asm' }
+  },
+
   clangd = {
     cmd = { 'clangd' },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' }
@@ -84,7 +88,7 @@ return {
     config = function()
       local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup({
-        ensure_installed = vim.tbl_keys(server_settings),
+        -- ensure_installed = vim.tbl_keys(server_settings),
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()

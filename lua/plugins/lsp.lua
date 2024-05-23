@@ -51,8 +51,7 @@ local server_settings = {
   },
 
   cmake_language_server = {
-    filetype = { 'cmake' }
-  },
+    filetype = { 'cmake' } },
 
   lua_ls = {
     Lua = {

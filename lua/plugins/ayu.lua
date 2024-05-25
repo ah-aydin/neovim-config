@@ -12,13 +12,15 @@ return {
         vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
         -- Ensure additional groups inherit transparency (optional)
         vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
-        vim.cmd("highlight LineNr guibg=NONE ctermbg=NONE")
         vim.cmd("highlight Folded guibg=NONE ctermbg=NONE")
         vim.cmd("highlight NonText guibg=NONE ctermbg=NONE")
         vim.cmd("highlight SpecialKey guibg=NONE ctermbg=NONE")
         vim.cmd("highlight VertSplit guibg=NONE ctermbg=NONE")
         vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
         vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
+
+        -- Make line numbers white
+        vim.cmd("highlight LineNr guifg=#FFFFFF")
       end
     })
   end

@@ -45,13 +45,18 @@ local server_settings = {
     filetypes = { 'asm' }
   },
 
+  biome = {
+    filetypes = { 'javascript', 'json', 'typescript' }
+  },
+
   clangd = {
     cmd = { 'clangd' },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' }
   },
 
   cmake_language_server = {
-    filetype = { 'cmake' } },
+    filetype = { 'cmake' }
+  },
 
   lua_ls = {
     Lua = {
@@ -86,9 +91,7 @@ return {
     'williamboman/mason-lspconfig',
     config = function()
       local mason_lspconfig = require('mason-lspconfig')
-      mason_lspconfig.setup({
-        -- ensure_installed = vim.tbl_keys(server_settings),
-      })
+      mason_lspconfig.setup({})
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)

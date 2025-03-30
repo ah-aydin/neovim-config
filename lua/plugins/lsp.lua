@@ -58,6 +58,30 @@ local server_settings = {
     filetype = { 'cmake' }
   },
 
+  eslint = {
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    settings = {
+      validate = 'on',
+      packageManager = 'npm',
+      autoFixOnSave = true,
+      format = true,
+    },
+  },
+
+  gopls = {
+    filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+    settings = {
+      gopls = {
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+      },
+    },
+  },
+
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -103,6 +127,9 @@ return {
             on_attach = on_attach,
             settings = server_settings[server_name],
             filetypes = (server_settings[server_name] or {}).filetypes,
+            flags = {
+              debounce_text_changes = 1000,
+            }
           }
         end,
       })

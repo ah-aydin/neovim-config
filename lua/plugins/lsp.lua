@@ -36,15 +36,11 @@ local on_attach = function(_, bufnr)
 
   -- Create command `:Fmt` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Fmt', function(_)
-    vim.lsp.buf.format()
+    vim.lsp.buf.format({ async = false })
   end, { desc = '[F]or[m]a[t] current buffer with LSP' })
 end
 
 local server_settings = {
-  asm_lsp = {
-    filetypes = { 'asm' }
-  },
-
   biome = {
     filetypes = { 'javascript', 'json', 'typescript' }
   },
@@ -91,8 +87,14 @@ local server_settings = {
   },
 
   rust_analyzer = {
-    filetype = { 'rust' }
-  },
+    cmd = { 'rust-analyzer' },
+    filetype = { 'rust' },
+    settings = {
+      ['rust-analyzer'] = {
+        rustfmt = {}
+      }
+    }
+  }
 }
 
 return {
@@ -121,6 +123,8 @@ return {
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
       mason_lspconfig.setup_handlers({
+        -- ['rust_analyzer'] = function() end,
+
         function(server_name)
           require('lspconfig')[server_name].setup {
             capabilities = capabilities,

@@ -36,7 +36,7 @@ local on_attach = function(_, bufnr)
 
   -- Create command `:Fmt` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Fmt', function(_)
-    vim.lsp.buf.format({ async = false })
+    vim.lsp.buf.format({ async = true })
   end, { desc = '[F]or[m]a[t] current buffer with LSP' })
 end
 

@@ -91,7 +91,20 @@ local server_settings = {
     filetype = { 'rust' },
     settings = {
       ['rust-analyzer'] = {
-        rustfmt = {}
+        rustfmt = {},
+        procMacor = {
+          ignored = {
+            leptos_macro = {
+              "server"
+            }
+          }
+        },
+        imports = {
+          group = {
+            enable = false
+          },
+          granularity = "Module"
+        }
       }
     }
   }
@@ -101,7 +114,7 @@ return {
   {
     'williamboman/mason.nvim',
     config = function()
-      require('mason').setup()
+      require('mason').setup { PATH = "append" }
     end
   },
   { 'neovim/nvim-lspconfig' },
@@ -132,7 +145,7 @@ return {
             settings = server_settings[server_name],
             filetypes = (server_settings[server_name] or {}).filetypes,
             flags = {
-              debounce_text_changes = 1000,
+              debounce_text_changes = 5000
             }
           }
         end,

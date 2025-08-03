@@ -104,6 +104,9 @@ local server_settings = {
             enable = false
           },
           granularity = "Module"
+        },
+        assist = {
+          importMergeBehaviour = "none"
         }
       }
     }

@@ -19,9 +19,9 @@ vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 
 -- Store stuff in the system buffer instead of the editor buffer
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- I am too used to Ctrl-C, so just in case mapping
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -48,3 +48,10 @@ vim.keymap.set("n", "]]", "<NOP>")
 
 -- Git
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Diagnostic keymaps
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })

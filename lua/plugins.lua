@@ -1,4 +1,3 @@
 return {
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
 }

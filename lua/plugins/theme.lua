@@ -10,7 +10,7 @@ return {
 		vim.api.nvim_create_autocmd("VimEnter", {
 			callback = function()
 				vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
-				-- Ensure additional groups inherit transparency (optional)
+				-- Ensure additional groups inherit transparency
 				vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
 				vim.cmd("highlight Folded guibg=NONE ctermbg=NONE")
 				vim.cmd("highlight NonText guibg=NONE ctermbg=NONE")
@@ -19,8 +19,11 @@ return {
 				vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
 				vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
 
+				vim.cmd("highlight CursorLine gui=underline guibg=NONE guifg=NONE")
+
 				-- Make line numbers white
 				vim.cmd("highlight LineNr guifg=#FFFFFF")
+				vim.cmd("highlight CursorLineNr guifg=#FFFFFF guibg=NONE")
 			end,
 		})
 	end,
